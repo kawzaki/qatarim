@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import ExpertiseGrid from '../components/ExpertiseGrid';
 import RecentArticlesCarousel from '../components/RecentArticlesCarousel';
 import WisdomCompass from '../components/WisdomCompass';
