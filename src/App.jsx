@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -20,7 +20,7 @@ function App() {
   const [isCommandCenterOpen, setIsCommandCenterOpen] = useState(false);
 
   return (
-    <Router basename={window.location.hostname.includes('github.io') ? '/qatarim' : '/'}>
+    <Router>
       <div className="min-h-screen bg-background text-primary font-body overflow-x-hidden selection:bg-tertiary/30 text-right" dir="rtl">
         <Navbar onSearchClick={() => setIsCommandCenterOpen(true)} />
         <ReadingEngine />
