@@ -19,23 +19,24 @@ const Home = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-right"
           >
-            <span className="text-tertiary font-title font-bold tracking-[0.2em] text-sm mb-10 block uppercase text-right">
+            <span className="text-tertiary font-title font-bold tracking-[0.2em] text-sm mb-10 block uppercase">
               المنصة الرسمية | د. منصور القطري
             </span>
-            <h1 className="text-6xl md:text-8xl font-title font-black text-primary mb-12 leading-[1.5] tracking-tight text-balance text-right">
+            <h1 className="text-6xl md:text-8xl font-title font-black text-primary mb-12 leading-[1.5] tracking-tight text-balance">
               تحويل الفكر الإداري <br className="hidden md:block"/> إلى <span className="text-tertiary">أثر مؤسسي</span>
             </h1>
-            <p className="text-xl text-primary/70 mb-12 leading-relaxed font-body max-w-xl text-balance text-right ml-auto">
+            <p className="text-xl text-primary/70 mb-12 leading-relaxed font-body max-w-xl text-balance mr-0 ml-auto">
               نلتقي هنا لنرتقي، حيث يجتمع الفكر الإداري الرصين مع الخبرة الميدانية لبناء جيل من القادة القادرين على مواكبة التحولات الكبرى.
             </p>
             <div className="flex flex-wrap gap-6 justify-end">
-              <a href="/90-books" className="px-10 py-5 bg-primary text-white rounded-none font-title font-bold text-lg hover:bg-primary/90 transition-all border border-primary">
+              <Link to="/publications" className="px-10 py-5 bg-primary text-white rounded-none font-title font-bold text-lg hover:bg-primary/90 transition-all border border-primary">
                 استكشف المكتبة
-              </a>
-              <a href="/training" className="px-10 py-5 border border-primary text-primary rounded-none font-title font-bold text-lg hover:bg-primary hover:text-white transition-all">
+              </Link>
+              <Link to="/training" className="px-10 py-5 border border-primary text-primary rounded-none font-title font-bold text-lg hover:bg-primary hover:text-white transition-all">
                 استشارات وتدريب
-              </a>
+              </Link>
             </div>
           </motion.div>
 

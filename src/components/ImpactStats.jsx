@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const institutes = [
   { name: 'غرفة الشرقية', logo: '/assets/institutes/asharqia.png' },
@@ -16,88 +15,43 @@ const institutes = [
 ];
 
 const ImpactStats = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const itemsPerPage = 5;
-    const totalPages = Math.ceil(institutes.length / itemsPerPage);
-
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % totalPages);
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
-    };
-
     return (
         <section className="py-32 bg-white relative overflow-hidden border-y border-surface-high">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20">
-                    <div className="max-w-2xl">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20 text-right">
+                    <div className="max-w-2xl ml-auto">
                         <span className="text-tertiary font-title font-bold tracking-[0.4em] uppercase text-sm mb-4 block">شركاء النجاح</span>
                         <h2 className="text-5xl md:text-6xl font-title font-black text-primary leading-tight">نطاق الأثر <span className="text-tertiary">المؤسسي</span></h2>
                     </div>
-                    
-                    {/* Carousel Controls */}
-                    <div className="flex gap-4">
-                        <button 
-                            onClick={prevSlide}
-                            className="w-16 h-16 rounded-full border border-surface-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm"
-                        >
-                            <ChevronRight className="w-6 h-6" />
-                        </button>
-                        <button 
-                            onClick={nextSlide}
-                            className="w-16 h-16 rounded-full border border-surface-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm"
-                        >
-                            <ChevronLeft className="w-6 h-6" />
-                        </button>
-                    </div>
                 </div>
 
-                {/* Sliding Content */}
-                <div className="relative overflow-hidden">
-                    <div 
-                        className="flex transition-transform duration-700 ease-[0.16,1,0.3,1]"
-                        style={{ transform: `translateX(${currentIndex * 100}%)` }}
-                    >
-                        {Array.from({ length: totalPages }).map((_, pageIndex) => (
-                            <div key={pageIndex} className="flex-none w-full grid grid-cols-2 md:grid-cols-5 gap-12 items-center">
-                                {institutes.slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage).map((inst, i) => (
-                                    <motion.div
-                                        key={inst.name}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: i * 0.1 }}
-                                        whileHover={{ scale: 1.05 }}
-                                        className="flex flex-col items-center group h-full"
-                                    >
-                                        <div className="w-full aspect-square bg-white border border-surface-high p-8 flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:border-tertiary/30 transition-all duration-500 rounded-[20px] shadow-sm mb-6 overflow-hidden">
-                                            <img 
-                                                src={inst.logo} 
-                                                alt={inst.name} 
-                                                className="max-w-full max-h-full object-contain transform group-hover:scale-110 transition-transform duration-500"
-                                            />
-                                        </div>
-                                        <h3 className="text-[10px] md:text-xs font-title font-bold text-primary/40 group-hover:text-tertiary transition-colors text-center uppercase tracking-wider">
-                                            {inst.name}
-                                        </h3>
-                                    </motion.div>
-                                ))}
+                {/* Partner Logo Scroller */}
+                <div className="flex overflow-x-auto gap-8 pb-12 scrollbar-hide snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                    {institutes.map((inst, i) => (
+                        <motion.div
+                            key={inst.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            className="flex-none w-[180px] md:w-[220px] group snap-center"
+                        >
+                            <div className="w-full aspect-square bg-white border border-surface-high p-8 flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:border-tertiary/30 transition-all duration-500 rounded-[20px] shadow-sm mb-6 overflow-hidden">
+                                <img 
+                                    src={inst.logo} 
+                                    alt={inst.name} 
+                                    className="max-w-full max-h-full object-contain transform group-hover:scale-110 transition-transform duration-500"
+                                />
                             </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Page Indicators */}
-                <div className="flex justify-center gap-2 mt-16">
-                    {Array.from({ length: totalPages }).map((_, i) => (
-                        <button 
-                            key={i}
-                            onClick={() => setCurrentIndex(i)}
-                            className={`h-1 transition-all duration-500 rounded-full ${currentIndex === i ? 'w-10 bg-tertiary' : 'w-4 bg-surface-high'}`}
-                        />
+                            <h3 className="text-[10px] md:text-xs font-title font-bold text-primary/40 group-hover:text-tertiary transition-colors text-center uppercase tracking-wider">
+                                {inst.name}
+                            </h3>
+                        </motion.div>
                     ))}
                 </div>
+
+                <p className="mt-8 text-center text-primary/30 font-body text-sm md:hidden">
+                    اسحب لليسار لرؤية جميع الشركاء ←
+                </p>
 
                 {/* Royal Stats Accent */}
                 <div className="mt-32 pt-20 border-t border-surface-high grid grid-cols-1 md:grid-cols-3 gap-16 text-center">

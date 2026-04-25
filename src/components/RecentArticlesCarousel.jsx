@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, ChevronLeft } from 'lucide-react';
 
 const recentArticles = [
@@ -33,22 +34,22 @@ const RecentArticles = () => {
     return (
         <section className="py-32 bg-white relative overflow-hidden ornament-bg">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20">
-                    <div className="max-w-2xl">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20 text-right">
+                    <div className="max-w-2xl ml-auto">
                         <span className="text-tertiary font-title font-bold tracking-[0.4em] uppercase text-sm mb-4 block">مدونة الفكر</span>
                         <h2 className="text-5xl md:text-7xl font-title font-black text-primary leading-tight">آخر <span className="text-tertiary">المقالات</span></h2>
                     </div>
                     
-                    <a href="/articles" className="hidden md:inline-flex items-center gap-4 text-primary font-title font-bold hover:text-tertiary transition-colors group">
+                    <Link to="/articles" className="hidden md:inline-flex items-center gap-4 text-primary font-title font-bold hover:text-tertiary transition-colors group">
                         <span>مشاهدة الكل</span>
                         <div className="w-12 h-12 rounded-full border border-surface-high flex items-center justify-center group-hover:bg-tertiary group-hover:text-white transition-all">
                             <ArrowLeft className="w-5 h-5" />
                         </div>
-                    </a>
+                    </Link>
                 </div>
 
-                {/* Static Grid (No Carousel) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Static Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-right" dir="rtl">
                     {recentArticles.map((article, index) => (
                         <motion.div 
                             key={article.id} 
@@ -71,8 +72,8 @@ const RecentArticles = () => {
                             
                             {/* Content Section */}
                             <div className="p-8 flex flex-col flex-1">
-                                <div className="flex items-center gap-3 text-primary/30 font-body text-[10px] mb-4">
-                                    <Calendar className="w-3 h-3" /> {article.date}
+                                <div className="flex items-center justify-end gap-3 text-primary/30 font-body text-[10px] mb-4">
+                                    {article.date} <Calendar className="w-3 h-3" />
                                 </div>
                                 
                                 <h3 className="text-xl font-title font-black text-primary group-hover:text-tertiary transition-colors mb-4 leading-tight min-h-[3rem]">
@@ -84,13 +85,13 @@ const RecentArticles = () => {
                                 </p>
                                 
                                 <div className="mt-auto">
-                                    <a 
-                                        href={`/articles/${article.id}`} 
+                                    <Link 
+                                        to="/articles" 
                                         className="inline-flex items-center gap-2 text-primary font-title font-bold text-sm group-hover:text-tertiary transition-colors"
                                     >
                                         <span>اقرأ المزيد</span>
                                         <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>
@@ -99,12 +100,12 @@ const RecentArticles = () => {
 
                 {/* Mobile View All Link */}
                 <div className="mt-16 text-center md:hidden">
-                    <a href="/articles" className="inline-flex items-center gap-4 text-primary font-title font-bold hover:text-tertiary transition-colors group">
+                    <Link to="/articles" className="inline-flex items-center gap-4 text-primary font-title font-bold hover:text-tertiary transition-colors group">
                         <span>مشاهدة جميع المقالات</span>
                         <div className="w-12 h-12 rounded-full border border-surface-high flex items-center justify-center group-hover:bg-tertiary group-hover:text-white transition-all">
                             <ArrowLeft className="w-5 h-5" />
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

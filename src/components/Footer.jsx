@@ -5,12 +5,10 @@ import Newsletter from './Newsletter';
 const Footer = () => {
   const sitemap = [
     { name: 'الرئيسية', href: '/' },
+    { name: 'المؤلفات', href: '/publications' },
     { name: 'المقالات', href: '/articles' },
     { name: 'المكتبة المرئية', href: '/visual-library' },
-    { name: 'النشاطات والفعاليات', href: '/activities' },
     { name: 'التدريب والاستشارات', href: '/training' },
-    { name: '90 كتاباً في كتاب', href: '/90-books' },
-    { name: 'رصيد الحكمة', href: '/wisdom' },
   ];
 
   return (
@@ -28,15 +26,15 @@ const Footer = () => {
         </div>
 
         {/* Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20 text-right">
           
           {/* Column 1: Identity */}
-          <div className="space-y-8">
-            <img src="/assets/logo.png" alt="د. منصور القطري" className="h-12 brightness-0 invert opacity-90" />
+          <div className="space-y-8 order-last lg:order-first">
+            <img src="/assets/logo.png" alt="د. منصور القطري" className="h-12 brightness-0 invert opacity-90 mr-auto lg:mr-0" />
             <p className="text-white/60 font-body leading-relaxed text-sm">
               مستشار في الموارد البشرية والتدريب، كاتب وباحث في الفكر الإداري والقيادي. نسعى معاً لبناء ثقافة مؤسسية ترتكز على القيم والابتكار.
             </p>
-            <div className="flex gap-6 text-tertiary">
+            <div className="flex gap-6 text-tertiary justify-end lg:justify-start">
                 <a href="#" className="hover:text-white transition-colors text-xl font-title font-bold">X</a>
                 <a href="#" className="hover:text-white transition-colors text-xl font-title font-bold">IN</a>
                 <a href="#" className="hover:text-white transition-colors text-xl font-title font-bold">YT</a>
@@ -64,7 +62,7 @@ const Footer = () => {
                 {['القيادة بالقيم', 'إدارة التغيير الاستراتيجي', 'بناء الكفاءات الوطنية'].map(topic => (
                     <li key={topic} className="group cursor-pointer">
                         <span className="text-white/70 font-title font-bold group-hover:text-tertiary transition-colors block mb-1">{topic}</span>
-                        <div className="w-4 h-0.5 bg-tertiary/30 group-hover:w-8 transition-all" />
+                        <div className="w-4 h-0.5 bg-tertiary/30 group-hover:w-8 transition-all mr-auto ml-0" />
                     </li>
                 ))}
             </ul>
@@ -91,8 +89,8 @@ const Footer = () => {
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-40 font-body text-xs uppercase tracking-widest">
             <p>© 2026 د. منصور القطري. جميع الحقوق محفوظة.</p>
             <div className="flex gap-8">
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
+                <a href="#" className="hover:text-white transition-colors">شروط الاستخدام</a>
             </div>
         </div>
       </div>

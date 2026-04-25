@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const expertiseItems = [
     { title: 'تطوير القيادات', icon: '👑' },
@@ -21,23 +20,11 @@ const expertiseItems = [
 ];
 
 const ExpertiseCarousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const itemsPerPage = 5;
-    const totalPages = Math.ceil(expertiseItems.length / itemsPerPage);
-
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % totalPages);
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
-    };
-
     return (
         <section className="py-32 bg-white relative overflow-hidden ornament-bg">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20">
-                    <div className="max-w-2xl">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20 text-right">
+                    <div className="max-w-2xl ml-auto">
                         <motion.span 
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -54,61 +41,34 @@ const ExpertiseCarousel = () => {
                             فضاءات المعرفة <span className="text-tertiary">الاستراتيجية</span>
                         </motion.h2>
                     </div>
-                    
-                    {/* Carousel Controls */}
-                    <div className="flex gap-4">
-                        <button 
-                            onClick={prevSlide}
-                            className="w-16 h-16 rounded-full border border-surface-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                        >
-                            <ChevronRight className="w-6 h-6" />
-                        </button>
-                        <button 
-                            onClick={nextSlide}
-                            className="w-16 h-16 rounded-full border border-surface-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                        >
-                            <ChevronLeft className="w-6 h-6" />
-                        </button>
-                    </div>
                 </div>
 
-                {/* Sliding Content */}
-                <div className="relative overflow-hidden">
-                    <div className="flex transition-transform duration-700 ease-[0.16,1,0.3,1]" 
-                         style={{ transform: `translateX(${currentIndex * 100}%)` }}>
-                        {Array.from({ length: totalPages }).map((_, pageIndex) => (
-                            <div key={pageIndex} className="flex-none w-full grid grid-cols-2 md:grid-cols-5 gap-6">
-                                {expertiseItems.slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage).map((item) => (
-                                    <motion.div
-                                        key={item.title}
-                                        whileHover={{ y: -10 }}
-                                        className="p-10 bg-white border border-surface-high hover:border-tertiary/30 transition-all group relative flex flex-col items-center text-center h-full"
-                                    >
-                                        <span className="text-5xl mb-8 block grayscale group-hover:grayscale-0 transition-all duration-500">
-                                            {item.icon}
-                                        </span>
-                                        <h3 className="text-xl font-title font-black text-primary group-hover:text-tertiary transition-colors leading-snug">
-                                            {item.title}
-                                        </h3>
-                                        
-                                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-surface-high group-hover:bg-tertiary transition-all" />
-                                    </motion.div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Page Indicators */}
-                <div className="flex justify-center gap-3 mt-16">
-                    {Array.from({ length: totalPages }).map((_, i) => (
-                        <button 
-                            key={i}
-                            onClick={() => setCurrentIndex(i)}
-                            className={`h-2 transition-all duration-500 rounded-full ${currentIndex === i ? 'w-12 bg-tertiary' : 'w-2 bg-surface-high hover:bg-primary/20'}`}
-                        />
+                {/* Flexible Grid / Mobile Scroller */}
+                <div className="flex overflow-x-auto md:grid md:grid-cols-5 gap-6 pb-8 scrollbar-hide snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                    {expertiseItems.map((item, index) => (
+                        <motion.div
+                            key={item.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            whileHover={{ y: -10 }}
+                            className="flex-none w-[200px] md:w-full p-8 md:p-10 bg-white border border-surface-high hover:border-tertiary/30 transition-all group relative flex flex-col items-center text-center h-full snap-center"
+                        >
+                            <span className="text-4xl md:text-5xl mb-6 md:mb-8 block grayscale group-hover:grayscale-0 transition-all duration-500">
+                                {item.icon}
+                            </span>
+                            <h3 className="text-lg md:text-xl font-title font-black text-primary group-hover:text-tertiary transition-colors leading-snug">
+                                {item.title}
+                            </h3>
+                            
+                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-surface-high group-hover:bg-tertiary transition-all" />
+                        </motion.div>
                     ))}
                 </div>
+
+                <p className="mt-12 text-center text-primary/30 font-body text-sm md:hidden">
+                    اسحب لليسار لرؤية المزيد من المجالات ←
+                </p>
             </div>
         </section>
     );
