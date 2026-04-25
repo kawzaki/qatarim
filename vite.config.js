@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Using relative paths to avoid sub-folder mapping issues
+  // This makes the app work on both Render (root) and GitHub Pages (sub-folder)
+  base: process.env.NODE_ENV === 'production' ? './' : '/',
 })
