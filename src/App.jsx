@@ -20,7 +20,7 @@ function App() {
   const [isCommandCenterOpen, setIsCommandCenterOpen] = useState(false);
 
   return (
-    <Router>
+    <Router basename="/qatarim">
       <div className="min-h-screen bg-background text-primary font-body overflow-x-hidden selection:bg-tertiary/30 text-right" dir="rtl">
         <Navbar onSearchClick={() => setIsCommandCenterOpen(true)} />
         <ReadingEngine />
