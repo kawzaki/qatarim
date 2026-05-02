@@ -135,12 +135,12 @@ const UniversalFlipbook = ({ pages = [] }) => {
            >
              {pages.map((page, index) => (
                <Page key={index} ocrText={page.ocrText}>
-                 <div className="relative w-full h-full bg-surface-low flex items-center justify-center">
+                 <div className="w-full h-full bg-white relative">
                     {/* Page Content */}
                     <img 
                       src={page.image} 
                       alt={`Page ${index + 1}`} 
-                      className="w-full h-full object-fill select-none pointer-events-none"
+                      className="absolute inset-0 w-full h-full object-fill select-none pointer-events-none"
                       loading={index < 5 ? "eager" : "lazy"}
                     />
                     
