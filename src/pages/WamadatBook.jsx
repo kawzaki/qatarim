@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { motion } from 'framer-motion';
 import WamadatFlipbook from '../components/WamadatFlipbook';
 import { BookOpen, Award, Layers, Search } from 'lucide-react';
 
