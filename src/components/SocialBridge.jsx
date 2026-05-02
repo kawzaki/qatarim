@@ -26,10 +26,17 @@ const SocialBridge = () => {
       {mockTweets.map((tweet, i) => (
         <motion.div
             key={tweet.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-white p-10 border border-surface-high relative group hover:border-tertiary/30 transition-all shadow-sm"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ 
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: [0.16, 1, 0.3, 1]
+            }}
+            whileHover={{ y: -8 }}
+            className="bg-white p-10 border border-surface-high relative group hover:border-tertiary/30 shadow-sm transition-colors duration-500 will-change-transform"
+            style={{ backfaceVisibility: 'hidden' }}
         >
             <div className="flex justify-between items-start mb-8">
                 <div className="w-10 h-10 bg-primary flex items-center justify-center">
