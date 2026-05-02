@@ -57,7 +57,7 @@ const SocialBridge = () => {
                 </div>
                 <span className="text-xs font-bold font-title">{tweet.date}</span>
             </div>
-            <div className="absolute bottom-0 left-0 w-0 h-1 bg-tertiary transition-all duration-700 group-hover:w-full" />
+            <div className="absolute bottom-0 right-0 w-0 h-1 bg-tertiary transition-all duration-700 group-hover:w-full" />
         </motion.div>
       ))}
     </div>
