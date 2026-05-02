@@ -33,7 +33,7 @@ const UniversalFlipbook = ({ pages = [] }) => {
   };
 
   return (
-    <div className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
+    <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
       
       {/* Cinematic Controls Top */}
       <div className="max-w-6xl mx-auto mb-12 flex items-center justify-between px-4">

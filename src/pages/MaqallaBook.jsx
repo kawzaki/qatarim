@@ -6,7 +6,7 @@ import { BookOpen, Award, Layers, Search } from 'lucide-react';
 
 const MaqallaBook = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen text-right" dir="rtl">
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
