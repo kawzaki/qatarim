@@ -41,13 +41,14 @@ const UniversalFlipbook = ({ pages = [] }) => {
     }
   };
 
-  const bookWidth = isMobile 
-    ? 350 
-    : (isFullscreen ? window.innerWidth * 0.9 : 850);
-  
   const bookHeight = isMobile 
     ? 500 
-    : (isFullscreen ? window.innerHeight * 0.85 : 1100);
+    : (isFullscreen ? window.innerHeight * 0.85 : Math.min(window.innerHeight * 0.7, 900));
+  
+  // Aspect ratio for a spread (2 pages) is roughly 1.4 - 1.5
+  const bookWidth = isMobile 
+    ? 350 
+    : (isFullscreen ? window.innerWidth * 0.9 : bookHeight * 1.3);
 
   return (
     <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
@@ -110,9 +111,9 @@ const UniversalFlipbook = ({ pages = [] }) => {
            {!isMobile && <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />}
            
            <HTMLFlipBook
-             width={bookWidth}
-             height={bookHeight}
-             size="fixed"
+             width={Math.round(bookWidth)}
+             height={Math.round(bookHeight)}
+             size="stretch"
              minWidth={280}
              maxWidth={3000}
              minHeight={400}
