@@ -9,7 +9,6 @@ const Navbar = ({ onSearchClick }) => {
   const navLinks = [
     { name: 'الرئيسية', href: '/' },
     { name: 'المؤلفات', href: '/publications' },
-    { name: 'ومضات فكرية', href: '/wamadat' },
     { name: 'المقالات', href: '/articles' },
     { name: 'المكتبة المرئية', href: '/visual-library' },
     { name: 'التدريب والاستشارات', href: '/training' },

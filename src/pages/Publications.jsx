@@ -66,6 +66,18 @@ const books = [
     status: 'جديد',
     image: 'https://ak-asset.jarir.com/akeneo-prod/asset/m1images/4/6/460656.jpg',
     rating: 5.0
+  },
+  {
+    id: 6,
+    title: 'ومضات فكرية',
+    year: '2024',
+    description: 'عمل بصري يجمع خلاصات تسعين كتاباً في قوالب فنية ملهمة، يمزج بين عمق الفكر الإداري وجمال التصميم البصري المعزز بالذكاء الاصطناعي.',
+    category: 'إدارة وتطوير',
+    pages: '109',
+    status: 'تفاعلي',
+    isFlipbook: true,
+    image: '/assets/books/wamadat/page-001.png',
+    rating: 5.0
   }
 ];
 
@@ -201,7 +213,14 @@ const Publications = () => {
                             </div>
 
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-6">
-                                {book.pdfUrl ? (
+                                {book.isFlipbook ? (
+                                    <Link 
+                                        to="/wamadat"
+                                        className="px-8 py-4 bg-tertiary text-primary font-title font-bold text-xs flex items-center gap-3 hover:bg-primary hover:text-white transition-all shadow-xl"
+                                    >
+                                        تصفح الكتاب تفاعلياً <BookOpen className="w-4 h-4" />
+                                    </Link>
+                                ) : book.pdfUrl ? (
                                     <a 
                                         href={book.pdfUrl}
                                         target="_blank"
