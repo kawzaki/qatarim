@@ -53,17 +53,23 @@ const RecentArticles = () => {
                     {recentArticles.map((article, index) => (
                         <motion.div 
                             key={article.id} 
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="bg-white border border-surface-high hover:border-tertiary/30 transition-all flex flex-col h-full group rounded-[30px] overflow-hidden shadow-sm hover:shadow-xl"
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ 
+                                duration: 0.8,
+                                delay: index * 0.1,
+                                ease: [0.16, 1, 0.3, 1]
+                            }}
+                            whileHover={{ y: -12, scale: 1.02 }}
+                            className="bg-white border border-surface-high flex flex-col h-full group rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl hover:border-tertiary/30 transition-colors duration-500 will-change-transform"
                         >
                             {/* Image Section */}
                             <div className="relative aspect-[16/10] overflow-hidden">
                                 <img 
                                     src={article.image} 
                                     alt={article.title} 
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute top-6 right-6 px-4 py-1 bg-white/90 backdrop-blur-md text-tertiary font-title font-bold text-[10px] uppercase tracking-widest rounded-full">
                                     {article.category}
@@ -85,13 +91,10 @@ const RecentArticles = () => {
                                 </p>
                                 
                                 <div className="mt-auto">
-                                    <Link 
-                                        to="/articles" 
-                                        className="inline-flex items-center gap-2 text-primary font-title font-bold text-sm group-hover:text-tertiary transition-colors"
-                                    >
+                                    <div className="inline-flex items-center gap-2 text-primary font-title font-bold text-sm group-hover:text-tertiary transition-colors">
                                         <span>اقرأ المزيد</span>
                                         <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-                                    </Link>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
