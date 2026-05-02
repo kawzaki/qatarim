@@ -111,10 +111,10 @@ const UniversalFlipbook = ({ pages = [] }) => {
            {!isMobile && <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />}
            
            <HTMLFlipBook
-             width={Math.round(bookWidth)}
-             height={Math.round(bookHeight)}
-             size="stretch"
-             minWidth={280}
+             width={1200}
+             height={800}
+             size="fixed"
+             minWidth={315}
              maxWidth={3000}
              minHeight={400}
              maxHeight={2500}
