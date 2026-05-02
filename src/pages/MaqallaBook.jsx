@@ -1,12 +1,12 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import UniversalFlipbook from '../components/UniversalFlipbook';
-import { wamadatPages } from '../data/wamadat';
+import { maqallaPages } from '../data/maqalla';
 import { BookOpen, Award, Layers, Search } from 'lucide-react';
 
-const WamadatBook = () => {
+const MaqallaBook = () => {
   return (
     <div className="bg-white min-h-screen">
-
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -21,10 +21,10 @@ const WamadatBook = () => {
           >
             <span className="text-tertiary font-title font-bold text-sm tracking-[0.4em] uppercase mb-6 block">المكتبة التفاعلية</span>
             <h1 className="text-6xl md:text-8xl font-title font-black text-primary mb-10 leading-[1.1]">
-              ومضات فكرية
+              ما قل ودل
             </h1>
             <p className="text-xl md:text-2xl text-primary/60 font-body leading-relaxed mb-12 max-w-2xl">
-              تجربة تفاعلية تجمع بين الفكر الإداري والجمال البصري، تختصر تسعين كتاباً في ومضات ملهمة تستهدف العقل والوجدان.
+              مجموعة من الحكم والمقالات القصيرة التي تستخلص زبدة التجربة في عبارات مكثفة ومركزة، تفتح آفاق التفكير وتلهم العمل.
             </p>
 
             <div className="flex flex-wrap gap-12 justify-end mb-20">
@@ -33,17 +33,8 @@ const WamadatBook = () => {
                      <Layers size={24} />
                   </div>
                   <div className="text-right">
-                     <div className="text-primary font-title font-black text-xl">109</div>
-                     <div className="text-primary/40 text-[10px] font-title font-bold uppercase tracking-widest">ومضة مرئية</div>
-                  </div>
-               </div>
-               <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-surface-low rounded-2xl flex items-center justify-center text-tertiary border border-surface-high">
-                     <BookOpen size={24} />
-                  </div>
-                  <div className="text-right">
-                     <div className="text-primary font-title font-black text-xl">90</div>
-                     <div className="text-primary/40 text-[10px] font-title font-bold uppercase tracking-widest">كتاب مرجعي</div>
+                     <div className="text-primary font-title font-black text-xl">145</div>
+                     <div className="text-primary/40 text-[10px] font-title font-bold uppercase tracking-widest">صفحة ملهمة</div>
                   </div>
                </div>
                <div className="flex items-center gap-4">
@@ -52,7 +43,7 @@ const WamadatBook = () => {
                   </div>
                   <div className="text-right">
                      <div className="text-primary font-title font-black text-xl">2024</div>
-                     <div className="text-primary/40 text-[10px] font-title font-bold uppercase tracking-widest">عام الإصدار</div>
+                     <div className="text-primary/40 text-[10px] font-title font-bold uppercase tracking-widest">إصدار جديد</div>
                   </div>
                </div>
             </div>
@@ -62,7 +53,7 @@ const WamadatBook = () => {
 
       {/* Interactive Flipbook Section */}
       <section className="pb-32 bg-surface-low border-y border-surface-high">
-         <UniversalFlipbook pages={wamadatPages} />
+         <UniversalFlipbook pages={maqallaPages} />
       </section>
 
       {/* Quote / Reflection Section */}
@@ -73,9 +64,9 @@ const WamadatBook = () => {
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
            >
-              <h3 className="text-tertiary font-title font-bold text-sm tracking-[0.5em] uppercase mb-16">جوهر الومضة</h3>
+              <h3 className="text-tertiary font-title font-bold text-sm tracking-[0.5em] uppercase mb-16">من زبدة القول</h3>
               <p className="text-4xl md:text-6xl font-title font-black text-white leading-tight mb-16">
-                "ليست القراءة مجرد استهلاك للمعلومات، بل هي ومضة تضيء مسارات العمل والتغيير."
+                "خير الكلام ما قل ودل، ولم يطل فيمل."
               </p>
               <div className="w-24 h-[1px] bg-tertiary mx-auto mb-8" />
               <span className="text-white/40 font-body text-sm tracking-widest uppercase">د. منصور القطري</span>
@@ -86,4 +77,4 @@ const WamadatBook = () => {
   );
 };
 
-export default WamadatBook;
+export default MaqallaBook;

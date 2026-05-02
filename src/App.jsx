@@ -12,6 +12,7 @@ import Wisdom from './pages/Wisdom';
 import Books90 from './pages/Books90';
 import Publications from './pages/Publications';
 import WamadatBook from './pages/WamadatBook';
+import MaqallaBook from './pages/MaqallaBook';
 
 // UX Components
 import ReadingEngine from './components/ReadingEngine';
@@ -39,6 +40,7 @@ function App() {
             <Route path="/90-books" element={<Books90 />} />
             <Route path="/publications" element={<Publications />} />
             <Route path="/wamadat" element={<WamadatBook />} />
+            <Route path="/maqalla" element={<MaqallaBook />} />
           </Routes>
         </main>
 

@@ -77,6 +77,19 @@ const books = [
     isFlipbook: true,
     image: '/assets/books/wamadat/page-001.png',
     rating: 5.0
+  },
+  {
+    id: 7,
+    title: 'ما قل ودل',
+    year: '2024',
+    description: 'خلاصات فكرية وحكم مكثفة تستهدف بناء الوعي بأقل الكلمات، تجمع بين عمق المعنى وجمال العبارة في تجربة بصرية تفاعلية.',
+    category: 'حكمة وفلسفة',
+    pages: '145',
+    status: 'تفاعلي',
+    isFlipbook: true,
+    flipbookUrl: '/maqalla',
+    image: '/assets/books/maqalla/page-002.jpg',
+    rating: 4.9
   }
 ];
 
@@ -213,7 +226,7 @@ const Publications = () => {
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-6">
                                 {book.isFlipbook ? (
                                     <Link 
-                                        to="/wamadat"
+                                        to={book.flipbookUrl || "/wamadat"}
                                         className="px-8 py-4 bg-tertiary text-primary font-title font-bold text-xs flex items-center gap-3 hover:bg-primary hover:text-white transition-all shadow-xl"
                                     >
                                         تصفح الكتاب تفاعلياً <BookOpen className="w-4 h-4" />
