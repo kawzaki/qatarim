@@ -48,9 +48,9 @@ const Home = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="aspect-[4/5] overflow-hidden border border-surface-high grayscale hover:grayscale-0 transition-all duration-1000 shadow-sm bg-white">
+            <div className="aspect-[4/5] overflow-hidden border border-surface-high transition-all duration-1000 shadow-sm bg-white">
               <img 
-                src="/assets/dr_mansour_portrait.png" 
+                src="/assets/author_office_portrait.png" 
                 alt="د. منصور القطري" 
                 className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
               />
