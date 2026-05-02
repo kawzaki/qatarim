@@ -15,8 +15,8 @@ const DailyFlash = () => {
     const oneDay = 1000 * 60 * 60 * 24;
     const dayOfYear = Math.floor(diff / oneDay);
     
-    // Cycle through pages 4-109 (avoiding cover/toc for daily flash)
-    const pageIdx = (dayOfYear % (wamadatPages.length - 4)) + 4;
+    // Cycle through pages 9-109 (avoiding index/intro pages 1-8 for daily flash)
+    const pageIdx = (dayOfYear % (wamadatPages.length - 8)) + 8;
     setRandomPage(wamadatPages[pageIdx]);
   }, []);
 
