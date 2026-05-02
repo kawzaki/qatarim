@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, Download, Search, Filter, ArrowRight, Share2, Star, Bookmark, ExternalLink } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 // Mapped exactly as per user instruction:
 // 1st cover (20147C1) -> 3rd book (فضل السكوت)
@@ -96,7 +94,6 @@ const Publications = () => {
 
   return (
     <div className="bg-white min-h-screen font-body text-right" dir="rtl">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-32 bg-surface-low overflow-hidden">
@@ -266,8 +263,6 @@ const Publications = () => {
             </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

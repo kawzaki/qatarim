@@ -1,14 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
 import WamadatFlipbook from '../components/WamadatFlipbook';
 import { BookOpen, Award, Layers, Search } from 'lucide-react';
 
 const WamadatBook = () => {
   return (
     <div className="bg-white min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 overflow-hidden">
@@ -85,8 +83,6 @@ const WamadatBook = () => {
            </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
