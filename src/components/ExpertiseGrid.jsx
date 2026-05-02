@@ -56,11 +56,11 @@ const ExpertiseCarousel = () => {
                                 delay: index * 0.05,
                                 ease: [0.16, 1, 0.3, 1]
                             }}
-                            whileHover={{ y: -12, scale: 1.02 }}
-                            className="flex-none w-[200px] md:w-full p-8 md:p-10 bg-white border border-surface-high hover:border-tertiary/30 transition-all group relative flex flex-col items-center text-center h-full snap-center will-change-transform"
+                            whileHover={{ y: -12 }}
+                            className="flex-none w-[200px] md:w-full p-8 md:p-10 bg-white border border-surface-high hover:border-tertiary/30 group relative flex flex-col items-center text-center h-full snap-center will-change-transform transition-colors duration-300"
                             style={{ backfaceVisibility: 'hidden' }}
                         >
-                            <span className="text-4xl md:text-5xl mb-6 md:mb-8 block transform group-hover:scale-110 transition-transform duration-500">
+                            <span className="text-4xl md:text-5xl mb-6 md:mb-8 block transition-transform duration-500 group-hover:translate-y-[-4px]">
                                 {item.icon}
                             </span>
                             <h3 className="text-lg md:text-xl font-title font-black text-primary group-hover:text-tertiary transition-colors leading-snug">
