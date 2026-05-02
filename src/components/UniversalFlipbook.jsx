@@ -17,6 +17,15 @@ const UniversalFlipbook = ({ pages = [] }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const onPage = (e) => {
     setCurrentPage(e.data);
@@ -31,6 +40,9 @@ const UniversalFlipbook = ({ pages = [] }) => {
       setIsFullscreen(false);
     }
   };
+
+  const bookWidth = isMobile ? 350 : (isFullscreen ? 600 : 550);
+  const bookHeight = isMobile ? 500 : (isFullscreen ? 850 : 780);
 
   return (
     <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
@@ -75,28 +87,28 @@ const UniversalFlipbook = ({ pages = [] }) => {
         {/* Navigation Arrows */}
         <button 
           onClick={() => book.current.pageFlip().flipNext()}
-          className="absolute -right-4 md:-right-20 z-50 p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
+          className="absolute -right-4 md:-right-20 z-50 p-4 md:p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
         >
-          <ChevronRight size={28} className="group-hover:scale-110 transition-transform" />
+          <ChevronRight size={24} className="group-hover:scale-110 transition-transform" />
         </button>
 
         <button 
           onClick={() => book.current.pageFlip().flipPrev()}
-          className="absolute -left-4 md:-left-20 z-50 p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
+          className="absolute -left-4 md:-left-20 z-50 p-4 md:p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
         >
-          <ChevronLeft size={28} className="group-hover:scale-110 transition-transform" />
+          <ChevronLeft size={24} className="group-hover:scale-110 transition-transform" />
         </button>
 
         {/* The Book Container */}
         <div className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden">
-           {/* Spine Highlight */}
-           <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />
+           {/* Spine Highlight (only on desktop) */}
+           {!isMobile && <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />}
            
            <HTMLFlipBook
-             width={isFullscreen ? 600 : 550}
-             height={isFullscreen ? 850 : 780}
+             width={bookWidth}
+             height={bookHeight}
              size="stretch"
-             minWidth={315}
+             minWidth={280}
              maxWidth={1000}
              minHeight={400}
              maxHeight={1533}
@@ -106,7 +118,7 @@ const UniversalFlipbook = ({ pages = [] }) => {
              onFlip={onPage}
              className="flipbook-canvas"
              ref={book}
-             usePortrait={false}
+             usePortrait={isMobile}
              startPage={0}
              drawShadow={true}
              flippingTime={1000}
