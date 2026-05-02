@@ -41,15 +41,6 @@ const UniversalFlipbook = ({ pages = [] }) => {
     }
   };
 
-  const bookHeight = isMobile 
-    ? 400 
-    : (isFullscreen ? window.innerHeight * 0.7 : window.innerHeight * 0.6);
-  
-  // Aspect ratio for landscape pages spread (2 pages) should be wide (~2.5 - 3.0)
-  const bookWidth = isMobile 
-    ? 320 
-    : (isFullscreen ? window.innerWidth * 0.95 : bookHeight * 2.8);
-
   return (
     <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
       
@@ -93,31 +84,31 @@ const UniversalFlipbook = ({ pages = [] }) => {
         {/* Navigation Arrows */}
         <button 
           onClick={() => book.current.pageFlip().flipNext()}
-          className="absolute -right-4 md:-right-20 z-50 p-4 md:p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
+          className="absolute -right-4 md:-right-20 z-50 p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
         >
-          <ChevronRight size={24} className="group-hover:scale-110 transition-transform" />
+          <ChevronRight size={28} className="group-hover:scale-110 transition-transform" />
         </button>
 
         <button 
           onClick={() => book.current.pageFlip().flipPrev()}
-          className="absolute -left-4 md:-left-20 z-50 p-4 md:p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
+          className="absolute -left-4 md:-left-20 z-50 p-6 bg-white border border-surface-high rounded-full shadow-2xl hover:bg-tertiary hover:text-white transition-all group"
         >
-          <ChevronLeft size={24} className="group-hover:scale-110 transition-transform" />
+          <ChevronLeft size={28} className="group-hover:scale-110 transition-transform" />
         </button>
 
         {/* The Book Container */}
-        <div className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm">
-           {/* Spine Highlight (only on desktop) */}
-           {!isMobile && <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />}
+        <div className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden">
+           {/* Spine Highlight */}
+           <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />
            
            <HTMLFlipBook
-             width={1200}
-             height={800}
-             size="fixed"
-             minWidth={315}
-             maxWidth={3000}
-             minHeight={400}
-             maxHeight={2500}
+             width={isMobile ? (isFullscreen ? 350 : 320) : (isFullscreen ? 600 : 550)}
+             height={isMobile ? (isFullscreen ? 500 : 460) : (isFullscreen ? 850 : 780)}
+             size="stretch"
+             minWidth={isMobile ? 250 : 315}
+             maxWidth={1000}
+             minHeight={isMobile ? 300 : 400}
+             maxHeight={1533}
              maxShadowOpacity={0.5}
              showCover={true}
              mobileScrollSupport={true}
@@ -136,12 +127,12 @@ const UniversalFlipbook = ({ pages = [] }) => {
            >
              {pages.map((page, index) => (
                <Page key={index} ocrText={page.ocrText}>
-                 <div className="w-full h-full bg-white relative">
+                 <div className="relative w-full h-full bg-surface-low flex items-center justify-center">
                     {/* Page Content */}
                     <img 
                       src={page.image} 
                       alt={`Page ${index + 1}`} 
-                      className="absolute inset-0 w-full h-full object-fill select-none pointer-events-none"
+                      className="w-full h-full object-fill select-none pointer-events-none"
                       loading={index < 5 ? "eager" : "lazy"}
                     />
                     
