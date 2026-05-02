@@ -105,14 +105,14 @@ const UniversalFlipbook = ({ pages = [] }) => {
         </button>
 
         {/* The Book Container */}
-        <div className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden">
+        <div className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm">
            {/* Spine Highlight (only on desktop) */}
            {!isMobile && <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />}
            
            <HTMLFlipBook
              width={bookWidth}
              height={bookHeight}
-             size="stretch"
+             size="fixed"
              minWidth={280}
              maxWidth={3000}
              minHeight={400}
