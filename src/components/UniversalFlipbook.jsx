@@ -42,12 +42,13 @@ const UniversalFlipbook = ({ pages = [] }) => {
   };
 
   const bookHeight = isMobile 
-    ? 500 
-    : (isFullscreen ? window.innerHeight * 1.1 : window.innerHeight * 1.2);
+    ? 400 
+    : (isFullscreen ? window.innerHeight * 0.7 : window.innerHeight * 0.6);
   
+  // Aspect ratio for landscape pages spread (2 pages) should be wide (~2.5 - 3.0)
   const bookWidth = isMobile 
-    ? 350 
-    : (isFullscreen ? window.innerWidth * 0.95 : bookHeight * 1.5);
+    ? 320 
+    : (isFullscreen ? window.innerWidth * 0.95 : bookHeight * 2.8);
 
   return (
     <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
