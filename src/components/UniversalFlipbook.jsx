@@ -43,7 +43,7 @@ const UniversalFlipbook = ({ pages = [] }) => {
 
   const bookHeight = isMobile 
     ? 500 
-    : (isFullscreen ? window.innerHeight * 0.9 : window.innerHeight * 0.95);
+    : (isFullscreen ? window.innerHeight * 1.1 : window.innerHeight * 1.2);
   
   const bookWidth = isMobile 
     ? 350 
