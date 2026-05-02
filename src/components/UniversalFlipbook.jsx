@@ -102,13 +102,13 @@ const UniversalFlipbook = ({ pages = [] }) => {
            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-white/10 to-black/20 z-40 pointer-events-none" />
            
            <HTMLFlipBook
-             width={isMobile ? (isFullscreen ? 350 : 320) : (isFullscreen ? 600 : 550)}
-             height={isMobile ? (isFullscreen ? 500 : 460) : (isFullscreen ? 850 : 780)}
+             width={isMobile ? (isFullscreen ? 400 : 320) : (isFullscreen ? 800 : 550)}
+             height={isMobile ? (isFullscreen ? 600 : 460) : (isFullscreen ? 1100 : 780)}
              size="stretch"
              minWidth={isMobile ? 250 : 315}
-             maxWidth={1000}
+             maxWidth={2000}
              minHeight={isMobile ? 300 : 400}
-             maxHeight={1533}
+             maxHeight={2500}
              maxShadowOpacity={0.5}
              showCover={true}
              mobileScrollSupport={true}
