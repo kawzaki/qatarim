@@ -50,7 +50,7 @@ const Home = () => {
           >
             <div className="aspect-[4/5] overflow-hidden border border-surface-high transition-all duration-1000 shadow-sm bg-white">
               <img 
-                src="/assets/author_office_portrait.png" 
+                src="/assets/dr_mansour_final.jpeg" 
                 alt="د. منصور القطري" 
                 className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
               />
