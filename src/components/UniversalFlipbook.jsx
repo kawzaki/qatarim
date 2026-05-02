@@ -114,6 +114,7 @@ const UniversalFlipbook = ({ pages = [] }) => {
              swipeDistance={30}
              showPageCorners={true}
              disableFlipByClick={false}
+             rtl={true}
            >
              {pages.map((page, index) => (
                <Page key={index} ocrText={page.ocrText}>
