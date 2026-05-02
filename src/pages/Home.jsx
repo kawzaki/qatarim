@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ExpertiseGrid from '../components/ExpertiseGrid';
 import RecentArticlesCarousel from '../components/RecentArticlesCarousel';
+import DailyFlash from '../components/DailyFlash';
 import WisdomCompass from '../components/WisdomCompass';
 import LibraryScroller from '../components/LibraryScroller';
 import ImpactStats from '../components/ImpactStats';
@@ -70,6 +71,9 @@ const Home = () => {
 
       {/* Recent Articles Carousel */}
       <RecentArticlesCarousel />
+
+      {/* NEW: Daily Flash of Wisdom */}
+      <DailyFlash />
 
       {/* NEW: Activity Pulse (Social Proof & Events) */}
       <ActivityPulse />

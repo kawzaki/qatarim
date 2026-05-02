@@ -11,6 +11,7 @@ import Testimonials from './pages/Testimonials';
 import Wisdom from './pages/Wisdom';
 import Books90 from './pages/Books90';
 import Publications from './pages/Publications';
+import WamadatBook from './pages/WamadatBook';
 
 // UX Components
 import ReadingEngine from './components/ReadingEngine';
@@ -37,8 +38,10 @@ function App() {
             <Route path="/wisdom" element={<Wisdom />} />
             <Route path="/90-books" element={<Books90 />} />
             <Route path="/publications" element={<Publications />} />
+            <Route path="/wamadat" element={<WamadatBook />} />
           </Routes>
         </main>
+
         
         <Footer />
       </div>
