@@ -41,8 +41,13 @@ const UniversalFlipbook = ({ pages = [] }) => {
     }
   };
 
-  const bookWidth = isMobile ? 350 : (isFullscreen ? 600 : 550);
-  const bookHeight = isMobile ? 500 : (isFullscreen ? 850 : 780);
+  const bookWidth = isMobile 
+    ? 350 
+    : (isFullscreen ? window.innerWidth * 0.9 : 550);
+  
+  const bookHeight = isMobile 
+    ? 500 
+    : (isFullscreen ? window.innerHeight * 0.85 : 780);
 
   return (
     <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
@@ -109,9 +114,9 @@ const UniversalFlipbook = ({ pages = [] }) => {
              height={bookHeight}
              size="stretch"
              minWidth={280}
-             maxWidth={1000}
+             maxWidth={3000}
              minHeight={400}
-             maxHeight={1533}
+             maxHeight={2500}
              maxShadowOpacity={0.5}
              showCover={true}
              mobileScrollSupport={true}
