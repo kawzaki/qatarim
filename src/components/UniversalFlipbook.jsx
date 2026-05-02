@@ -43,11 +43,11 @@ const UniversalFlipbook = ({ pages = [] }) => {
 
   const bookWidth = isMobile 
     ? 350 
-    : (isFullscreen ? window.innerWidth * 0.9 : 550);
+    : (isFullscreen ? window.innerWidth * 0.9 : 850);
   
   const bookHeight = isMobile 
     ? 500 
-    : (isFullscreen ? window.innerHeight * 0.85 : 780);
+    : (isFullscreen ? window.innerHeight * 0.85 : 1100);
 
   return (
     <div dir="rtl" className={`relative ${isFullscreen ? 'fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4' : 'w-full py-20 px-4'}`}>
