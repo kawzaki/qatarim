@@ -48,13 +48,19 @@ const ExpertiseCarousel = () => {
                     {expertiseItems.map((item, index) => (
                         <motion.div
                             key={item.title}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                            whileHover={{ y: -10 }}
-                            className="flex-none w-[200px] md:w-full p-8 md:p-10 bg-white border border-surface-high hover:border-tertiary/30 transition-all group relative flex flex-col items-center text-center h-full snap-center"
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ 
+                                duration: 0.8, 
+                                delay: index * 0.05,
+                                ease: [0.16, 1, 0.3, 1]
+                            }}
+                            whileHover={{ y: -12, scale: 1.02 }}
+                            className="flex-none w-[200px] md:w-full p-8 md:p-10 bg-white border border-surface-high hover:border-tertiary/30 transition-all group relative flex flex-col items-center text-center h-full snap-center will-change-transform"
+                            style={{ backfaceVisibility: 'hidden' }}
                         >
-                            <span className="text-4xl md:text-5xl mb-6 md:mb-8 block grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <span className="text-4xl md:text-5xl mb-6 md:mb-8 block transform group-hover:scale-110 transition-transform duration-500">
                                 {item.icon}
                             </span>
                             <h3 className="text-lg md:text-xl font-title font-black text-primary group-hover:text-tertiary transition-colors leading-snug">
